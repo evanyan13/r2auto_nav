@@ -1,9 +1,5 @@
 # Enter your full name below
 
-Yan Weidong (Evan)
-<<<<<<< HEAD
+Yan Weidong (Evan): evanyan13
 Jahabar Sathick Mohammed Hamdhan: mohammedhamdhan
-=======
-Jahabar Sathick Mohammed Hamdhan
 Lee Chuan
->>>>>>> 76ad1c29fdd71447ae53a18ca7696945806c4ab7
