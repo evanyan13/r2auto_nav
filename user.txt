@@ -1,5 +1,13 @@
 # Enter your full name below
 
 Yan Weidong (Evan)
+<<<<<<< HEAD
+Jahabar Sathick Mohammed Hamdhan: mohammedhamdhan
+=======
 Jahabar Sathick Mohammed Hamdhan
-Lee Chuan 157550883
+<<<<<<< HEAD
+Lee Chuan (Username: LeeChuan User ID: 157550883)
+=======
+Lee Chuan
+>>>>>>> 76ad1c29fdd71447ae53a18ca7696945806c4ab7
+>>>>>>> 643811acbea8cfd25c5261d2879c510d17388726
