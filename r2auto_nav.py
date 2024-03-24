@@ -26,7 +26,7 @@ import time
 
 # constants
 rotatechange = 0.1
-speedchange = 0.05
+speedchange = 0.10
 occ_bins = [-1, 0, 100, 101]
 stop_distance = 0.25
 front_angle = 30
@@ -61,11 +61,11 @@ class AutoNav(Node):
 
     def __init__(self):
         super().__init__('auto_nav')
-        
+
         # create publisher for moving TurtleBot
         self.publisher_ = self.create_publisher(Twist,'cmd_vel',10)
         # self.get_logger().info('Created publisher')
-        
+
         # create subscription to track orientation
         self.odom_subscription = self.create_subscription(
             Odometry,
@@ -78,7 +78,7 @@ class AutoNav(Node):
         self.roll = 0
         self.pitch = 0
         self.yaw = 0
-        
+
         # create subscription to track occupancy
         self.occ_subscription = self.create_subscription(
             OccupancyGrid,
@@ -87,7 +87,7 @@ class AutoNav(Node):
             qos_profile_sensor_data)
         self.occ_subscription  # prevent unused variable warning
         self.occdata = np.array([])
-        
+
         # create subscription to track lidar
         self.scan_subscription = self.create_subscription(
             LaserScan,
@@ -129,7 +129,7 @@ class AutoNav(Node):
         # create numpy array
         self.laser_range = np.array(msg.ranges)
         # print to file
-        # np.savetxt(scanfile, self.laser_range)
+        np.savetxt(scanfile, self.laser_range)
         # replace 0's with nan
         self.laser_range[self.laser_range==0] = np.nan
 
@@ -139,7 +139,7 @@ class AutoNav(Node):
         # self.get_logger().info('In rotatebot')
         # create Twist object
         twist = Twist()
-        
+
         # get current yaw angle
         current_yaw = self.yaw
         # log the info
@@ -246,13 +246,13 @@ class AutoNav(Node):
                         # rotate to that direction
                         # start moving
                         self.pick_direction()
-                    
+
                 # allow the callback functions to run
                 rclpy.spin_once(self)
 
         except Exception as e:
             print(e)
-        
+
         # Ctrl-c detected
         finally:
             # stop moving
